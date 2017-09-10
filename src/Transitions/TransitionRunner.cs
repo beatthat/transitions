@@ -34,7 +34,7 @@ namespace BeatThat.Anim
 					return null;
 				}
 
-				TransitionRunnerImpl tr = UnityExtensions.FindObjectOfType<TransitionRunnerImpl>();
+				TransitionRunnerImpl tr = GameObjectUtils.FindObjectOfType<TransitionRunnerImpl>();
 
 				if(tr == null) {
 					tr = new GameObject("TransitionRunner").AddComponent<UnityUpdateTransitionRunner>();

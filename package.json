@@ -1,11 +1,12 @@
 {
-  "name": "unity-transitions",
-  "version": "0.0.2",
+  "name": "transitions",
+  "scope": "ape",
+  "version": "0.0.3",
   "description": "Transitions are behaviours that start and then run to completion with an option to cancel. The most common example is something like a FadeIn for a UI panel. The standalone interfaces package allows other packages to interact with transitions without a dependency on any implementation.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beatthat/unity-transitions.git"
+    "url": "git+https://github.com/beatthat/transitions.git"
   },
   "files": [
     "index.js",
@@ -15,19 +16,21 @@
   "author": "larrykirschner@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/beatthat/unity-transitions/issues"
+    "url": "https://github.com/beatthat/transitions/issues"
   },
-  "homepage": "https://github.com/beatthat/unity-transitions",
+  "homepage": "https://github.com/beatthat/transitions",
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
     "install:test": "rm -f *.tgz && npm pack && cd test && npm run clean && npm install",
-    "clean": "rm -f *.tgz && cd test && npm run clean"
+    "clean": "rm -f *.tgz && cd test && npm run clean",
+    "sync:test2src": "rsync -rv --include '*/' --include '*.cs' --exclude '*' --prune-empty-dirs test/Assets/Plugins/${npm_package_scope}/${npm_package_name}/ ./src/${npm_package_name}/",
+    "pub:tag": "git add -A && git commit -m ${npm_package_version} && git tag -a ${npm_package_version} -m ${npm_package_version} && git push origin master && git push origin ${npm_package_version}"
   },
   "dependencies": {
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "unity-transition-interfaces": "github:beatthat/unity-transition-interfaces#semver:^0.0.2",
-    "unity-requests": "github:beatthat/unity-requests#semver:^0.0.15",
-    "unity-extensions": "github:beatthat/unity-extensions#semver:^0.0.3"
+    "gameobject-utils": "beatthat/gameobject-utils#semver:^0.0.1",
+    "requests": "github:beatthat/requests#semver:^0.0.16",
+    "transition-interfaces": "github:beatthat/transition-interfaces#semver:^0.0.3"
   }
 }
