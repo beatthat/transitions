@@ -1,3 +1,5 @@
+Transitions are behaviours that start and then run to completion with an option to cancel. The most common example is something like a FadeIn for a UI panel. The standalone interfaces package allows other packages to interact with transitions without a dependency on any implementation.
+
 # TEMPLATE
 
 ...
