@@ -23,9 +23,9 @@ namespace BeatThat.Transitions.Comp
 			this.transitionDelegate.Cancel();
 		}
 
-		public void Execute (Action callback = null)
+		public void Execute (Action callback = null, bool callbackOnCancelled = false)
 		{
-			this.transitionDelegate.Execute(callback);
+            this.transitionDelegate.Execute(callback, callbackOnCancelled);
 		}
 
 		public bool isCancelled { get { return this.status == RequestStatus.CANCELLED; } }
